@@ -20,7 +20,7 @@ function Counter() {
       <button onClick={() => dispatch(incrementInfo())} style={{ backgroundColor: 'green' }}>Increment Info</button><br /><br />
       <button onClick={() => dispatch(decrementInfo())} style={{ backgroundColor: 'orange' }}>Decrement Info</button><br /><br />
 
-      <button onClick={() => dispatch(counterIncrementThunk(20))} style={{ backgroundColor: 'yellow' }}>Increment Counter Async By Amount 20</button><br /><br />
+      <button onClick={() => dispatch(counterIncrementThunk(20))} style={{ backgroundColor: 'yellow' }}>Increment Counter Async By Amount 20 (Delay of 2 secs.)</button><br /><br />
     </div>
   )
 };
