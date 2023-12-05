@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import counterIncrementThunk from "../thunks/counterIncrementThunk";
 
 export type CounterState = {
   counter: number;
@@ -39,8 +40,22 @@ const counterSlice = createSlice({
       state.info -= action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(counterIncrementThunk.fulfilled, (state, action: PayloadAction<number>) => {
+      state.counter += action.payload;
+    });
+  }
 });
 
-export const { incrementCounter, incrementCounterByAmount, decrementCounter, decrementCounterByAmount, incrementInfo, incrementInfoByAmount, decrementInfo, decrementInfoByAmount } = counterSlice.actions;
+export const {
+  incrementCounter,
+  incrementCounterByAmount,
+  decrementCounter,
+  decrementCounterByAmount,
+  incrementInfo,
+  incrementInfoByAmount,
+  decrementInfo,
+  decrementInfoByAmount,
+} = counterSlice.actions;
 export default counterSlice.reducer;
 
